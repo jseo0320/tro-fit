@@ -1,0 +1,260 @@
+{
+  "_metadata": {
+    "version": "1.1",
+    "created": "2026-06-27",
+    "scope": "normal_rom.json에 정의된 7개 동작만 대상 (고관절·발목 제외)",
+    "basis": "ADL Functional ROM Research — 논문 기반 임계값",
+    "references": {
+      "shoulder_flexion":   "Namdari S et al. J Shoulder Elbow Surg. 2012;21(9):1177-83.",
+      "shoulder_extension": "AMA 가이드 + 임상 관행 (ADL 전용 논문 제한적)",
+      "shoulder_abduction": "Namdari S et al. J Shoulder Elbow Surg. 2012;21(9):1177-83.",
+      "elbow_flexion":      "Morrey BF et al. J Bone Joint Surg Am. 1981;63(6):872-7.",
+      "elbow_extension":    "Morrey BF et al. 1981 — 기능적 호 하한선 30°에서 역산",
+      "knee_flexion":       "Rowe PJ et al. Gait Posture. 2000;12(2):143-55.",
+      "knee_extension":     "임상 관행 기반 (완전 신전 불가 시 보행 장애)"
+    },
+    "asymmetry_alert_deg": 15,
+    "asymmetry_note": "MediaPipe 측정 오차 ±3~5° 감안. 15° 이상 차이를 기능적 비대칭 경고로 채택. 단일 확정 논문 없음.",
+    "extension_note": "신전(extension) 동작은 측정값이 정상값(0°)에서 '얼마나 멀어지는가'로 등급 판단. 값이 클수록 신전 제한."
+  },
+
+  "joints": {
+
+    "shoulder_flexion": {
+      "anatomical_normal_deg": 150,
+      "grade_direction": "higher_is_better",
+      "basis": "Namdari 2012 — 어깨 굴곡 ADL 실측값",
+      "adl_examples": {
+        "식사": "~45°",
+        "머리_빗기": "~98°",
+        "세탁물_넣기": "~112°",
+        "선반_위_물건_꺼내기": "~120°",
+        "머리_위_선반_물건": "~128°"
+      },
+      "grades": {
+        "NORMAL": {
+          "min_deg": 120,
+          "clinical_meaning": "머리 위 선반 포함 대부분의 일상 동작 가능",
+          "adl_ok": ["식사", "머리 빗기", "세탁물 넣기", "선반 위 물건"]
+        },
+        "WARNING": {
+          "min_deg": 90,
+          "clinical_meaning": "식사·세수는 가능. 머리 위 물건 꺼내기·세탁물 넣기 어려움",
+          "adl_ok": ["식사", "세수"],
+          "adl_limited": ["머리 빗기", "세탁물 넣기", "선반 위 물건"]
+        },
+        "CRITICAL": {
+          "min_deg": 0,
+          "clinical_meaning": "기본 식사 이외 대부분의 동작 불가. 즉각 재활 권고",
+          "adl_ok": [],
+          "adl_limited": ["식사 포함 대부분"]
+        }
+      }
+    },
+
+    "shoulder_extension": {
+      "anatomical_normal_deg": 40,
+      "grade_direction": "higher_is_better",
+      "basis": "AMA 기준 정상값 40°. ADL 전용 논문 제한적 — 임상 관행 기반 등급 설정.",
+      "adl_examples": {
+        "등 뒤로_손_뻗기": "~30°",
+        "서랍_뒤로_밀기": "~20°",
+        "재킷_입기": "~25°"
+      },
+      "basis_note": "⚠️ 어깨 신전 ADL 전용 확정 논문 없음. AMA 정상값(40°) 기준으로 비율 등분. 향후 보정 권장.",
+      "grades": {
+        "NORMAL": {
+          "min_deg": 30,
+          "clinical_meaning": "등 뒤로 손 뻗기, 재킷 입기 등 일상 동작 가능",
+          "adl_ok": ["등 뒤로 손 뻗기", "재킷 입기"]
+        },
+        "WARNING": {
+          "min_deg": 15,
+          "clinical_meaning": "등 뒤 동작이 제한됨. 옷 입기·뒤 손 뻗기 어려움",
+          "adl_ok": ["간단한 뒤쪽 동작"],
+          "adl_limited": ["등 뒤 손 뻗기", "재킷 입기"]
+        },
+        "CRITICAL": {
+          "min_deg": 0,
+          "clinical_meaning": "어깨 뒤쪽 동작 거의 불가. 재활 권고",
+          "adl_ok": [],
+          "adl_limited": ["등 뒤 모든 동작"]
+        }
+      }
+    },
+
+    "shoulder_abduction": {
+      "anatomical_normal_deg": 150,
+      "grade_direction": "higher_is_better",
+      "basis": "Namdari 2012 — 어깨 외전 ADL 실측값",
+      "adl_examples": {
+        "식사": "~30°",
+        "머리_빗기": "~92°",
+        "세탁물_넣기": "~96°",
+        "선반_위_물건_꺼내기": "~112°",
+        "머리_위_선반_물건": "~128°"
+      },
+      "grades": {
+        "NORMAL": {
+          "min_deg": 120,
+          "clinical_meaning": "어깨 위 동작 포함 일상 동작 대부분 가능",
+          "adl_ok": ["식사", "머리 빗기", "세탁물 넣기", "선반 위 물건"]
+        },
+        "WARNING": {
+          "min_deg": 80,
+          "clinical_meaning": "식사는 가능. 머리 빗기·세탁물 넣기 어려움",
+          "adl_ok": ["식사"],
+          "adl_limited": ["머리 빗기", "세탁물 넣기", "선반 위 물건"]
+        },
+        "CRITICAL": {
+          "min_deg": 0,
+          "clinical_meaning": "기본 위생 동작 불가. 즉각 재활 권고",
+          "adl_ok": [],
+          "adl_limited": ["식사 제외 대부분"]
+        }
+      }
+    },
+
+    "elbow_flexion": {
+      "anatomical_normal_deg": 150,
+      "grade_direction": "higher_is_better",
+      "basis": "Morrey 1981 — 기능적 호 30°~130°. 130° 이상 시 주요 ADL 전부 커버.",
+      "adl_examples": {
+        "식사(포크·숟가락)": "85°~130°",
+        "음료_마시기": "45°~130°",
+        "전화_받기": "43°~136°",
+        "세수하기": "53°~110°",
+        "독서": "38°~97°"
+      },
+      "grades": {
+        "NORMAL": {
+          "min_deg": 130,
+          "clinical_meaning": "식사·세수·전화 등 기본 일상생활 동작 모두 가능",
+          "adl_ok": ["식사", "음료 마시기", "전화 받기", "세수", "독서"]
+        },
+        "WARNING": {
+          "min_deg": 100,
+          "clinical_meaning": "전화 받기·머리 빗기가 어렵습니다. 식사는 가능",
+          "adl_ok": ["식사", "세수", "독서"],
+          "adl_limited": ["전화 받기", "머리 빗기"]
+        },
+        "CRITICAL": {
+          "min_deg": 0,
+          "clinical_meaning": "식사 포함 대부분의 일상 동작 불가. 즉각 재활 권고",
+          "adl_ok": [],
+          "adl_limited": ["식사 포함 대부분"]
+        }
+      }
+    },
+
+    "elbow_extension": {
+      "anatomical_normal_deg": 0,
+      "grade_direction": "lower_is_better",
+      "basis": "Morrey 1981 기능적 호 하한(30°) 역산 + Orthobullets/Healio 임상 리뷰 (\"30° 미만 신전 결손은 대부분 환자에서 잘 견디며, 30° 초과 시 기능 손상 뚜렷\")",
+      "basis_note": "신전 동작: 실체각(구축각)이 낮을수록 좋음. 0°=완전신전, 값↑=신전 제한",
+      "calculation_detail": {
+        "step1": "Morrey 1981 기능적 호 하한: 30° (ADL 시작점 중 가장 낮은 값의 보수적 하한)",
+        "step2": "CRITICAL 경계: 구축각 > 30° → 기능적 호 진입 자체 불가",
+        "step3": "NORMAL 경계: 30° ÷ 2 = 15° (임상적으로 안전한 구역 + MediaPipe 오차 ±3~5° 마진)"
+      },
+      "adl_examples": {
+        "물건_밀기": "0°~10° 잔류 굴곡",
+        "팔_뻗어_잡기": "0°~15° 잔류 굴곡",
+        "Morrey_기능적_호_하한": "30° (이 이상 구축 시 기능적 호 진입 불가)"
+      },
+      "grades": {
+        "NORMAL": {
+          "max_deg": 15,
+          "clinical_meaning": "팔을 거의 완전히 펼 수 있습니다. 정상 범위입니다.",
+          "adl_ok": ["물건 밀기", "팔 뻗어 잡기", "지팡이 짚기"]
+        },
+        "WARNING": {
+          "max_deg": 30,
+          "clinical_meaning": "팔이 완전히 펴지지 않습니다. Morrey 기능적 호 하한 근접 접근.",
+          "adl_limited": ["완전 신전 필요 동작"]
+        },
+        "CRITICAL": {
+          "max_deg": 999,
+          "clinical_meaning": "팔꿈치 굴곡 구축(30° 이상)으로 Morrey 기능적 호 진입이 불가합니다.",
+          "adl_limited": ["팔꿈치 신전 포함 대부분"]
+        }
+      }
+    },
+
+    "knee_flexion": {
+      "anatomical_normal_deg": 150,
+      "grade_direction": "higher_is_better",
+      "basis": "Rowe 2000 — ADL별 무릎 굴곡 실측. 재활 목표 110°.",
+      "adl_examples": {
+        "평지_보행": "< 90°",
+        "계단_오르기": "90°~120°",
+        "의자에서_일어서기": "90°~120°",
+        "욕조_들어가기": "~135°"
+      },
+      "grades": {
+        "NORMAL": {
+          "min_deg": 120,
+          "clinical_meaning": "계단 오르내리기·의자 기립·보행 모두 가능",
+          "adl_ok": ["평지 보행", "계단 오르기", "의자 기립"]
+        },
+        "WARNING": {
+          "min_deg": 90,
+          "clinical_meaning": "평지 보행은 가능. 계단 오르내리기·의자에서 일어서기 어려움",
+          "adl_ok": ["평지 보행"],
+          "adl_limited": ["계단 오르기", "의자 기립"]
+        },
+        "CRITICAL": {
+          "min_deg": 0,
+          "clinical_meaning": "계단·기립 모두 불가. 보행 장애 위험. 즉각 재활 권고",
+          "adl_ok": [],
+          "adl_limited": ["계단", "기립", "보행"]
+        }
+      }
+    },
+
+    "knee_extension": {
+      "anatomical_normal_deg": 0,
+      "grade_direction": "lower_is_better",
+      "basis": "Waters & Mulroy (1999) Gait & Posture 9(3):207-231 + PubMed 무릎 굴곡 구축 시뮬레이션 연구. 구축각 15° 초과 시 VO₂ 유의 증가.",
+      "basis_note": "신전 동작: 실체각(구축각)이 낮을수록 좋음. 0°=완전신전, 값↑=신전 제한. v1.1에서 CRITICAL 경계를 기존 근거로 > 20°에서 > 15°로 강화",
+      "calculation_detail": {
+        "critical_15": "건강 성인 시뮬레이션에서 15° 초과 시 VO₂ 유의 증가 (PubMed 다수 연구)",
+        "warning_10": "ACLR 연구 신전 결손 5°+ 시 기능 저하 보고 → MediaPipe 오차 안전 여유 포함 10°"
+      },
+      "adl_examples": {
+        "정상_보행_stance_phase": "완전 신전(0°) 필요",
+        "서있기": "완전 신전 필요",
+        "계단_내려가기": "완전 신전 필요"
+      },
+      "grades": {
+        "NORMAL": {
+          "max_deg": 10,
+          "clinical_meaning": "무릎을 거의 완전히 펼 수 있습니다. 보행 정상입니다.",
+          "adl_ok": ["평지 보행", "서 있기", "계단 내려가기"]
+        },
+        "WARNING": {
+          "max_deg": 15,
+          "clinical_meaning": "무릎이 완전히 펴지지 않습니다. 에너지 소모 증가 경계 접근. 장거리 보행 주의.",
+          "adl_ok": ["단거리 보행"],
+          "adl_limited": ["장거리 보행", "계단 내려가기"]
+        },
+        "CRITICAL": {
+          "max_deg": 999,
+          "clinical_meaning": "15° 이상 굴곡 구축으로 보행 에너지 소모가 유의하게 증가합니다. 즉각 재활 권고.",
+          "adl_limited": ["보행", "서 있기", "계단 내려가기"]
+        }
+      }
+    }
+
+  },
+
+  "asymmetry": {
+    "alert_deg": 15,
+    "basis": "임상 관행 기반. 단일 확정 논문 없음. MediaPipe 오차(±3~5°) 감안하여 15° 채택.",
+    "grades": {
+      "NORMAL":   { "max_diff_deg": 9,   "clinical_meaning": "좌우 균형 정상" },
+      "WARNING":  { "max_diff_deg": 14,  "clinical_meaning": "경도 비대칭. 모니터링 권장" },
+      "CRITICAL": { "min_diff_deg": 15,  "clinical_meaning": "기능적 비대칭. 보행 불균형·부상 위험" }
+    }
+  }
+}

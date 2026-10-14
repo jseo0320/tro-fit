@@ -1,0 +1,10 @@
+fastapi==0.142.2
+uvicorn==0.54.0
+pydantic[email]==2.13.5
+python-dotenv==1.2.4
+PyJWT>=2.8,<3
+psycopg2-binary>=2.9.9,<3
+psycopg[binary]==3.3.6
+SQLAlchemy>=2.0,<3
+httpx==0.28.1
+numpy>=2,<3

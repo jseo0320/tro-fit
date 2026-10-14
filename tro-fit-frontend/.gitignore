@@ -1,0 +1,4 @@
+*.md
+*.xlsx
+.claude/
+frontend/.claude/

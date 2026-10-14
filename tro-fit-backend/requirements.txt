@@ -1,0 +1,30 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Tro-Fit AI Vision — Python 의존 라이브러리
+# ─────────────────────────────────────────────────────────────────────────────
+# 설치 방법:
+#   python -m venv venv
+#   venv\Scripts\activate        # Windows
+#   source venv/bin/activate     # macOS / Linux
+#   pip install -r requirements.txt
+# ─────────────────────────────────────────────────────────────────────────────
+
+# 포즈 추정 (BlazePose / MediaPipe)
+mediapipe==0.10.35
+
+# 이미지 처리
+opencv-contrib-python==4.13.0.92
+imageio-ffmpeg==0.6.0
+
+# 수치 연산
+numpy==2.4.6
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pydantic[email]>=2.0
+python-dotenv>=1.0.0
+pyjwt>=2.8.0
+psycopg2-binary>=2.9.9
+psycopg[binary]==3.3.6
+sqlalchemy>=2.0.0
+httpx2>=2.4.0
+# LLM is a separate HTTP service.
+httpx==0.28.1

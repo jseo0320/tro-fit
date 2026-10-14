@@ -1,0 +1,12 @@
+# Python client for the local Ollama server
+ollama==0.6.3
+langchain-core==1.6.6
+langchain-ollama==1.1.0
+# Load settings from .env
+python-dotenv==1.2.4
+fastapi==0.142.2
+uvicorn==0.54.0
+pydantic==2.13.5
+httpx==0.28.1
+psycopg[binary]==3.3.6
+pypdf==6.19.0

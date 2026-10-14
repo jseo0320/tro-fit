@@ -1,0 +1,5 @@
+# Run from the workspace root: pip install -r tro-fit-backend/requirements-choreography.txt
+-e ./tro_fit_llm
+mediapipe==0.10.35
+opencv-contrib-python==4.13.0.92
+imageio-ffmpeg==0.6.0
